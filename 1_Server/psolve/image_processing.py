@@ -9,7 +9,7 @@ import numpy as np
 required_dirs = ['sudokus', 'differences', 'tictactoes', 'wordsearches']
 for directory in required_dirs:
     if not os.path.isdir('static/images/' + directory):
-        os.mkdir(directory)
+        os.mkdir('static/images/' + directory)
 
 
 def convert_b64_to_cv2(b64_encoded_img):
