@@ -3,11 +3,11 @@ pSolve (puzzle solver) is a cross-platform computer vision assisted puzzle solvi
 The idea is to create an application that can solve puzzles (such as sudokus) from simple image input.
 
 
-pSolve is my final year project and as such is **a work in progress**, more puzzles and in-depth testcases will be added at a later stage.
+pSolve is my final year project and as such is **a work in progress**; more puzzles and in-depth testcases will be added at a later stage.
 
 ### Early Demo
 
-Below is an example of sudoku solving where the client captures an image of an unsolved sudoku. The server solves the sudoku and the client displays the solution. In this case no OCR correction was needed on the client.
+Below is an demo of sudoku solving where the client captures an image of an unsolved sudoku. The server solves the sudoku and the client displays the solution. In this case no OCR correction was needed on the client.
 
 ![](https://media.giphy.com/media/ibp9jG9jBfFLNhy8z2/giphy.gif)
 
@@ -22,22 +22,22 @@ Below is an example of sudoku solving where the client captures an image of an u
 The client is developed for both iOS and Android simultaneously using [React Native](https://facebook.github.io/react-native/) and [Expo](https://expo.io/). 
 The client deals with image capturing and uploading, OCR correction, and displaying puzzle solutions.
 
-- /0_Client/
-- Puzzle code in 0_Client/puzzles/
+- [/0_Client/](https://github.com/Ross97/FYP_pSolve/tree/master/0_Client)
+- Puzzle code in [0_Client/puzzles/](https://github.com/Ross97/FYP_pSolve/tree/master/0_Client/puzzles)
 
 ### Server *(Python)*
 The server is developed using Python, making use of [Flask](https://palletsprojects.com/p/flask/) and [OpenCV](https://opencv.org/). 
 The server implements an API, allowing easy client-server communication.
-The server deals with image processing, OCR, and solving logic.
+The server deals with image processing, OCR, and puzzle solving logic.
 Docker is used for continuous deployment (making use of DockerHub's [automated builds](https://docs.docker.com/docker-hub/builds/)).
 
-- /1_Server/
-- server.py is the main file (Flask server/API), it imports everything else
-- image_processing.py contains re-usable functions that are called from most puzzle files in /1_Server/psolve/
+- [/1_Server/](https://github.com/Ross97/FYP_pSolve/tree/master/1_Server)
+- [server.py](https://github.com/Ross97/FYP_pSolve/blob/master/1_Server/psolve/server.py) is the main server program that handles requests, it imports everything else
+- [image_processing.py](https://github.com/Ross97/FYP_pSolve/blob/master/1_Server/psolve/image_processing.py) contains re-usable functions that are called from most puzzle programs
 
-### DockerFile
-- /1_Server/Dockerfile
-- Used for continuous integration using DockerHub's [automated builds](https://docs.docker.com/docker-hub/builds/)
+### Dockerfile
+- [Dockerfile](https://github.com/Ross97/FYP_pSolve/blob/master/1_Server/Dockerfile)
+- Used for Continous Integration using DockerHub's [automated builds](https://docs.docker.com/docker-hub/builds/)
 
 ### General Process
   1. Client captures an image or uploads from camera roll
