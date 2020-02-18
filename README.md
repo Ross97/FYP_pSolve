@@ -7,7 +7,7 @@ pSolve is my final year project and as such is **a work in progress**; more puzz
 
 ### Early Demo
 
-Below is an demo of sudoku solving where the client captures an image of an unsolved sudoku. The server solves the sudoku and the client displays the solution. In this case no OCR correction was needed on the client.
+Below is a demo of sudoku solving where the client captures an image of an unsolved sudoku. The server solves the sudoku and the client displays the solution. In this case no OCR correction was needed on the client.
 
 ![](https://media.giphy.com/media/ibp9jG9jBfFLNhy8z2/giphy.gif)
 
@@ -37,7 +37,7 @@ Docker is used for continuous deployment (making use of DockerHub's [automated b
 
 ### Dockerfile
 - [Dockerfile](https://github.com/Ross97/FYP_pSolve/blob/master/1_Server/Dockerfile)
-- Used for Continous Integration using DockerHub's [automated builds](https://docs.docker.com/docker-hub/builds/)
+- Used for Continuous Integration using DockerHub's [automated builds](https://docs.docker.com/docker-hub/builds/)
 
 ### General Process
   1. Client captures an image or uploads from camera roll
