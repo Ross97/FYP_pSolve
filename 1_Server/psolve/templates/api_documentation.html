@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+  <title>pSolve</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style type="text/css">
+      body { margin: 1%; }
+    </style>
+</head>
+<body>
+
+  <h1>pSolve API Documentation</h1>
+  <br>
+
+  <h2>API information</h2>
+  <p><kbd>http://ross-dev.live:5000/</kbd> is the base URL for all queries</p>
+  <br>
+
+  <h3>Sudoku Detection</h3>
+  <p>  
+  	<kbd>/sudoku/detect</kbd> <br>
+    <b>Usage</b>: Send base-64 encoded images of sudoku puzzles to obtain the detected digits<br>
+    <b>Parameters</b>: b64_data (<i>required</i>) <br>
+    <b>Returns</b>: result (<i>always</i>), digits, filename <br>
+    <button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#detect_example" aria-expanded="false" aria-controls="detect_example"> 
+      View Example
+    </button>
+    <div class="collapse" id="detect_example">
+      <p>Python 3 example using the <a href="https://pypi.org/project/requests/">requests</a> library</p>
+        <code>
+          import requests <br>
+          url = 'http://ross-dev.live:5000/sudoku/detect' <br>
+          my_sudoku_img = {'b64_data': MY_B64_ENCODED_IMAGE} <br>
+          response = requests.post(url, json=my_sudoku_img)  <br>
+          print(response.status_code, response.text)
+        </code><br> 
+    </div>
+  </p>
+  <br>
+
+  <h3>Sudoku Solver</h3>
+  <p>  
+  	<kbd>/sudoku/solve</kbd>  <br>
+    <b>Usage</b>: Send a 9*9 array of digits in an unsolved sudoku to obtain the solution<br>
+    <b>Parameters</b>: sudoku (<i>required</i>), filename (<i>optional</i>) <br>
+    <b>Returns</b>: result (<i>always</i>), solution <br>
+        <button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#solve_example" aria-expanded="false" aria-controls="solve_example"> 
+      View Example
+    </button>
+    <div class="collapse" id="solve_example">
+      <p>Python 3 example using the <a href="https://pypi.org/project/requests/">requests</a> library</p>
+        <code>
+          import requests <br>
+          url = 'http://ross-dev.live:5000/sudoku/solve' <br>
+          my_sudoku = {'sudoku': [[5,3,0,0,7,0,0,0,0],[6,0,0,1,9,5,0,0,0],[0,9,8,0,0,0,0,6,0],[8,0,0,0,6,0,0,0,3],[4,0,0,8,0,3,0,0,1],[7,0,0,0,2,0,0,0,6],[0,6,0,0,0,0,2,8,0],[0,0,0,4,1,9,0,0,5],[0,0,0,0,8,0,0,0,9]]} <br>
+          response = requests.post(url, json=my_sudoku) <br>
+          print(response.status_code, response.text)
+        </code><br> 
+    </div>
+  </p>
+  <br>
+
+  <h3>Spot The Difference</h3>
+  <p>  
+  	<kbd>/differences/detect</kbd>  <br>
+    <b>Usage</b>: Send two same-sized base-64 encoded images to obtain a filename showing the differences.<br>
+    <b>Parameters</b>: image_one (<i>required</i>), image_two (<i>required</i>), is_camera_image (<i>optional</i>) <br>
+    <b>Returns</b>: result (<i>always</i>), filename <br>
+        <button class="btn btn-info btn-sm" type="button" data-toggle="collapse" data-target="#difference_example" aria-expanded="false" aria-controls="difference_example"> 
+      View Example
+    </button>
+    <div class="collapse" id="difference_example">
+      <p>Python 3 example using the <a href="https://pypi.org/project/requests/">requests</a> library</p>
+        <code>
+          import requests <br>
+          url = 'http://ross-dev.live:5000/differences/detect' <br>
+          my_images = {'image_one': MY_B64_ENCODED_IMAGE_1, 'image_two': MY_B64_ENCODED_IMAGE_2} <br>
+          response = requests.post(url, json=my_images) <br>
+          print(response.status_code, response.text)
+        </code><br> 
+    </div>
+  </p>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
